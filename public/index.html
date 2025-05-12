@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Girlfriend</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <div class="chat-interface">
+        <div class="header">
+          <h1 class="app-title">My AI Girlfriend</h1>
+          <p class="app-subtitle">Khushi</p>
+        </div>
+
+        <div class="chat-section" id="chat-section">
+          <div class="chat-empty-state" id="empty-state">
+            <i class="fas fa-microphone-alt empty-icon"></i>
+            <h3>Start a conversation</h3>
+            <p>Tap the microphone button below and start speaking</p>
+          </div>
+
+          <div class="conversation-container" id="conversation"></div>
+        </div>
+
+        <div class="input-section">
+          <div class="status-indicator" id="status">Press to speak</div>
+          <button class="mic-button" id="mic-button">
+            <i class="fas fa-microphone"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>

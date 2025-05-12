@@ -1,0 +1,264 @@
+:root {
+  --primary: #7f5af0;
+  --secondary: #ff6b6b;
+  --dark: #16161a;
+  --light: #fffffe;
+  --background: #2c2c2c;
+  --card-bg: #e6e6e6;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --gradient: linear-gradient(135deg, var(--primary), #5038e0);
+  --gradient-secondary: linear-gradient(135deg, var(--secondary), #f9376e);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--background);
+  color: var(--dark);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.app-container {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
+}
+
+.chat-interface {
+  background: var(--card-bg);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  max-height: 95vh;
+}
+
+.header {
+  padding: 1.25rem;
+  background: var(--gradient);
+  color: var(--light);
+  text-align: center;
+  position: relative;
+}
+
+.app-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.app-subtitle {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-top: 0.25rem;
+}
+
+.chat-section {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  gap: 2rem;
+  overflow-y: auto;
+}
+
+.chat-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.profile-name {
+  font-weight: 600;
+  margin-left: 0.75rem;
+}
+
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.user .profile-icon {
+  background: var(--gradient);
+}
+
+.ai .profile-icon {
+  background: var(--gradient-secondary);
+}
+
+.chat-bubble {
+  padding: 1rem;
+  border-radius: 18px;
+  font-size: 1rem;
+  line-height: 1.5;
+  max-width: 100%;
+  word-break: break-word;
+}
+
+.user .chat-bubble {
+  background: var(--primary);
+  color: white;
+  border-top-right-radius: 4px;
+  align-self: flex-end;
+}
+
+.ai .chat-bubble {
+  background: #f0f0f0;
+  color: var(--dark);
+  border-top-left-radius: 4px;
+  align-self: flex-start;
+}
+
+.input-section {
+  padding: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.mic-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--gradient);
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 4px 12px rgba(127, 90, 240, 0.3);
+}
+
+.mic-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(127, 90, 240, 0.4);
+}
+
+.mic-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(127, 90, 240, 0.4);
+}
+
+.mic-button.listening {
+  animation: pulse 1.2s infinite;
+}
+
+.status-indicator {
+  flex-grow: 1;
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+}
+
+.profile-icon.speaking {
+  animation: pulse2 1.2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(127, 90, 240, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(127, 90, 240, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(127, 90, 240, 0);
+  }
+}
+
+@keyframes pulse2 {
+  0% {
+    box-shadow: 0 0 0 0 rgba(249, 55, 110, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(249, 55, 110, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(249, 55, 110, 0);
+  }
+}
+
+.chat-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: 100%;
+  color: #666;
+  text-align: center;
+  padding: 2rem;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 600px) {
+  .chat-section {
+    padding: 1rem;
+  }
+
+  .mic-button {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+
+  .chat-bubble {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-height: 600px) {
+  .header {
+    padding: 0.75rem;
+  }
+
+  .app-title {
+    font-size: 1.25rem;
+  }
+
+  .chat-section {
+    gap: 1rem;
+  }
+}
+
+.conversation-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
