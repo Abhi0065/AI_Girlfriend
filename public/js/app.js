@@ -118,6 +118,7 @@ async function sendToServer(prompt) {
       throw new Error(result.error);
     }
 
+    const speechText = result.message;
     const speech = result.message
       .replace(
         /([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|\uD83E[\uDD00-\uDDFF])/g,
@@ -125,7 +126,7 @@ async function sendToServer(prompt) {
       )
       .replace(/[^a-zA-Z\s]/g, '');
 
-    const iconId = addAIMessage(speech);
+    const iconId = addAIMessage(speechText);
     textToSpeech(speech, iconId);
     finalTranscript = '';
     statusIndicator.textContent = 'Press to speak';
