@@ -122,7 +122,7 @@ async function sendToServer(prompt) {
    const speech = result.message
      .replace(
     /([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|\uD83E[\uDD00-\uDDFF])/g,'')
-     .replace(/[^a-zA-Z\s,.\?]/g, '');
+     .replace(/[^a-zA-Z\s,\.?!]/g, '')
 
     const iconId = addAIMessage(speechText);
     textToSpeech(speech, iconId);
